@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div class="form-body">
+        <div class="row">
+
+            {% for message in app.flashes('success') %}
+                <div class="alert alert-success">
+                    {{ message }}
+                </div>
+            {% endfor %}
+
+            <div class="form-holder">
+                <div class="form-content">
+                    <div class="form-items">
+                    <h3>Edit Blog</h3>
+
+                        {{ form_start(form) }}
+
+                            <div class="col-md-12">       
+                                {{ form_row(form.title) }}
+                                <div class="valid-feedback">{{ form_errors(form.title) }}</div>
+                            </div>
+
+                            <div class="col-md-12">
+                                {{ form_row(form.content) }}
+                                <div class="valid-feedback">{{ form_errors(form.content) }}</div>
+                            </div>
+
+                            <div class="col-md-12">
+                                {{ form_row(form.summary) }}
+                            </div>
+
+                            <div class="col-md-12">
+                                {{ form_row(form.slug) }}
+                            </div>
+
+                            <div class="form-check">
+                                {{ form_row(form.published) }}
+                            </div>
+
+                            <div class="form-button mt-3">
+                                {{ form_row(form.save) }}
+                            </div>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
